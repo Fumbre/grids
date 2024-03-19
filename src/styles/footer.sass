@@ -1,0 +1,37 @@
+@import supports/color_variables
+@import supports/mixins
+
+.footer
+  padding: 24px 0 16px 0
+  background-color: $black
+  &__container
+    display: flex
+    justify-content: space-between
+  &__logo
+    max-width: 263px
+    color: $whiteDark
+  &__picture
+    margin-bottom: 6px
+  &__text-container 
+    max-width: 361px
+    @include font-text(16px, 400, $greayWhite)
+    line-height: 22px
+  &__quote
+    margin: 0
+  &__quote-author
+    display: block
+    font-weight: normal
+    color: $greyLight
+  &__title
+    margin-bottom: 8px
+    @include font-text(16px, 400, $greayWhite)
+    line-height: 22px
+
+  &__links
+    max-width: 161px
+  &__list
+    justify-content: center
+    margin: 0 auto
+    max-width: 100%
+  &__figcaption
+    @include font-text(14px, 400, $whiteDark)

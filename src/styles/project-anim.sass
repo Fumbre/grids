@@ -1,0 +1,88 @@
+.project__content1 .project__big1-list
+  animation-name: slideLeft
+  animation-duration: .35s
+  
+.project__content1 .project__big2-list
+  animation-name: slideRight
+  animation-duration: .35s 
+
+.project__content1 .project__medium1-list,
+.project__content1 .project__medium2-list
+  animation-name: slideUp
+  animation-duration: .35s
+
+.project__content1 .project__small-list
+  animation-name: slideDown
+  animation-duration: .35s
+
+
+.project__content2 .project__big1-list
+  animation-name: slideRight
+  animation-duration: .35s
+  
+.project__content2 .project__big2-list
+  animation-name: slideLeft
+  animation-duration: .35s 
+
+.project__content2 .project__medium1-list,
+.project__content2 .project__medium2-list
+  animation-name: slideDown
+  animation-duration: .35s
+
+.project__content2 .project__small-list
+  animation-name: slideUp
+  animation-duration: .35s
+
+:is(.project__content, .project__content1)
+  & .project-small,
+  & .project-big1,
+  & .project-big2,
+  & .project-medium1,
+  & .project-medium2
+    visibility: visible
+  & .project-small:not(:nth-child(-n + 3)),
+  & .project-big1:not(:nth-child(-n + 1)),
+  & .project-big2:not(:nth-child(-n + 1)),
+  & .project-medium1:not(:nth-child(-n + 1)),
+  & .project-medium2:not(:nth-child(-n + 1))
+    visibility: hidden
+ 
+
+:is(.project__content.project__content2)
+  & .project-small,
+  & .project-big1,
+  & .project-big2,
+  & .project-medium1,
+  & .project-medium2
+    visibility: visible
+  & .project-small:not(:nth-child(n + 4)),
+  & .project-big1:not(:nth-child(n + 2)),
+  & .project-big2:not(:nth-child(n + 2)),
+  & .project-medium1:not(:nth-child(n + 2)),
+  & .project-medium2:not(:nth-child(n + 2))
+    visibility: hidden
+ 
+
+@keyframes slideUp
+  0%
+    transform: translateY(calc(-100% - 30px))
+  100%
+    transform: translateY(0)
+
+@keyframes slideDown
+  0%
+    transform: translateY(calc(100% + 30px))
+  100%
+    transform: translateY(0)
+
+@keyframes slideRight
+  0%
+    transform: translateX(calc(100% + 30px))
+  100%
+    transform: translateX(0)
+
+@keyframes slideLeft
+  0%
+    transform: translateX(calc(-100% - 30px))
+  100%
+    transform: translateX(0)

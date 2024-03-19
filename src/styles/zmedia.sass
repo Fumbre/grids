@@ -1,0 +1,867 @@
+@import 'supports/color_variables'
+// huj mozna luboje MMM nie uwieren uze 1200
+@media ( max-width:  1260px)
+  .header
+    &__container
+      grid-template-columns: minmax(auto, 168px) minmax(558px, 742px) minmax(130px, auto)
+  .hashtag
+    padding: 6px 14px
+  .search
+    &__input
+      min-width: 198px
+      font-size: 16px
+  .phone
+    color: $orange
+    &:hover
+      color: $orangeWhite
+    &:focus
+      color: $orange
+      border-color: $orangeDark
+    &:active
+      color: $orangeDark
+      border-color: transparent
+  .hero__article
+    padding: 34px 30px 27px 30px
+    max-width: 466px
+    background-image: url(images/hero/hero__article-1024.webp)
+    & > .hashtag
+      padding: 7px 14px
+  .hero-article
+    &__text
+      margin-bottom: 2px
+    &__title
+      margin-bottom: 15px
+      font-size: 34px
+  .hero__latest-title
+    max-width: 466px
+
+  .about
+    padding-top: 32px
+    padding-bottom: 155px
+    &__text
+      max-width: 466px
+  .about-subscribe
+    &::before
+      margin-bottom: 20px
+      background-image: url(images/about/about__img-1024.webp)
+    &__form
+      flex-wrap: wrap
+      max-width: 344px
+  .subscribe-form__label
+    margin: 0 0 20px
+
+  .project
+    &__content
+      grid-template-columns: 4fr 1fr 1fr 2fr 4fr 1fr
+      grid-template-areas: 'small-list small-list small-list small-list small-list small-list' 'big1-list big1-list big1-list big1-list medium1-list medium1-list' 'medium2-list medium2-list big2-list big2-list big2-list big2-list '
+      & .project__big1-list,
+      & .project__big2-list,
+      & .project__medium1-list,
+      & .project__medium2-list,
+      & .project__small-list
+        animation: none 0s
+    &__content1
+      grid-template-areas: 'small-list small-list small-list small-list small-list small-list' 'big1-list big1-list big1-list big1-list medium1-list medium1-list' 'medium2-list medium2-list big2-list big2-list big2-list big2-list '
+    &__content2
+      grid-template-areas: 'big1-list big1-list big1-list big1-list medium1-list medium1-list' 'medium2-list medium2-list big2-list big2-list big2-list big2-list ' 'small-list small-list small-list small-list small-list small-list'
+  .project__content2
+    & .project-small
+      transform: translate(calc((-100% * 4) - calc(29px * 4)), 0)
+  .project-small
+    min-width: calc((100% / 4) - 22px)
+  .project-small,
+  .project-big1,
+  .project-big2,
+  .project-medium1,
+  .project-medium2
+    transition: transform .3s ease-in-out, visibility .3s ease
+
+  :is(.project__content, .project__content1)
+    & .project-small,
+    & .project-small:nth-child(4n)
+      visibility: visible
+    & .project-small:not(:nth-child(-n + 4))
+      visibility: hidden 
+
+  :is(.project__content.project__content2)
+    & .project-small
+      visibility: visible
+    & .project-small:not(:nth-child(n + 5))
+      visibility: hidden
+  
+  .services
+    &__title
+      margin-bottom: 10px
+    &__content
+      max-width: calc(100% - 371px)
+    &__main-item
+      padding-left: 218px
+      &:not(:last-child)
+        margin-bottom: 20px        
+    &__second-item
+      padding-left: 0
+      padding-top: 140px
+    &__main-item::before 
+      width: 218px
+    &__main-item0::before
+      background-image: url(images/services/main-list/img0-1024.webp)
+    &__main-item1::before
+      background-image: url(images/services/main-list/img1-1024.webp)
+    &__main-item2::before
+      background-image: url(images/services/main-list/img2-1024.webp)
+    &__main-item3::before
+      background-image: url(images/services/main-list/img3-1024.webp)
+    &__main-item4::before
+      background-image: url(images/services/main-list/img4-1024.webp)
+    &__second-item::before
+      bottom: unset
+      right: 0
+      width: unset
+      height: 140px
+    &__second-item0::before
+      background-image: url(images/services/second-list/img0-1024.webp)
+    &__second-item1::before
+      background-image: url(images/services/second-list/img1-1024.webp)
+    &__second-item2::before
+      background-image: url(images/services/second-list/img2-1024.webp)
+    &__second-item3::before
+      background-image: url(images/services/second-list/img3-1024.webp)
+    &__second-item4::before
+      background-image: url(images/services/second-list/img4-1024.webp)
+    &__second-item5::before
+      background-image: url(images/services/second-list/img5-1024.webp)
+    &__second-item6::before
+      background-image: url(images/services/second-list/img6-1024.webp)
+    &__second-item7::before
+      background-image: url(images/services/second-list/img7-1024.webp)
+    &__second-item8::before
+      background-image: url(images/services/second-list/img8-1024.webp)
+    &__second-item9::before
+      background-image: url(images/services/second-list/img9-1024.webp)
+    &__aside
+      min-width: 342px
+      max-width: 342px
+  .services-main-article
+    padding: 30px 0 22px 28px 
+  .services-second-article
+    padding: 13px 0 10px 0
+  .aside-article
+    &__work1-list,
+    &__work2-list
+      grid-auto-rows: 71px
+      gap: 21px 30px
+  
+  .best-practices
+    &__article
+      margin: 0 0 40px 0
+      padding-left: 466px
+      min-width: unset
+      width: 100%
+      max-width: 100%
+      &::before
+        width: 466px
+        background-image: url('images/best-practices/article/img0-1024.webp')
+    &__list
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
+      min-width: unset
+      width: 100%
+      max-width: unset
+      gap: 17px 45px
+    &__item
+      padding-left: 94px
+      width: calc( (100% / 2) - 30px)
+      min-height: 71px
+    &__item0::before
+      width: 94px
+      background-image: url('images/best-practices/list/img0-1024.webp')
+    &__item1::before
+      width: 94px
+      background-image: url('images/best-practices/list/img1-1024.webp')
+    &__item2::before
+      width: 94px
+      background-image: url('images/best-practices/list/img2-1024.webp')
+    &__item3::before
+      width: 94px
+      background-image: url('images/best-practices/list/img3-1024.webp')
+    &-item__wrapper
+      padding: 13px 0 13px 30px
+  .contacts-map
+    &__text
+      line-height: 21px
+    &__info
+      top: unset
+      left: 0
+      right: 0
+      bottom: 0
+      padding: 18px 30px 21px 30px
+      width: unset
+      min-height: 157px
+    &__phone
+      display: inline-flex
+      transform: translateY(5px)
+    
+@media ( max-width:  1021px)
+  .container
+    padding: 0 27px
+  .header
+    &__container
+      grid-template-columns: minmax(auto, 411px) minmax(195px, 1fr) 25px
+      grid-template-areas: 'logo phone search' 'menu menu menu'
+      column-gap: 41px
+    &__links
+      display: none
+    &__phone
+      z-index: 1
+      justify-self: self-end
+    &__phone--hidden
+      visibility: hidden
+    &__search--active
+      z-index: 2
+  .search
+    &__input
+      z-index: 0
+      visibility: hidden
+      order: -1
+      height: 22px
+      background-color: $black
+      border-radius: unset
+    &__input--active
+      visibility: visible
+    &__btn
+      &--active .icon-close
+        visibility: visible
+      &--active .icon-open
+        visibility: hidden
+  .icon-open
+    visibility: visible
+    &--active
+      visibility: hidden
+  .icon-open1
+    visibility: hidden
+  .hero-article
+    &__title
+      line-height: .95
+  .hero__latest-title
+    font-size: 22px
+
+  .about
+    padding-bottom: 65px
+
+  .project__content2
+    & .project-small
+      transform: translate(calc((-100% * 3) - calc(29px * 3)), 0)
+
+  .project-small
+    min-width: calc((100% / 3) - 19px)
+
+  :is(.project__content, .project__content1)
+    & .project-small
+      visibility: visible
+    & .project-small:not(:nth-child(-n + 3))
+      visibility: hidden 
+
+  :is(.project__content.project__content2)
+    & .project-small,
+    & .project-small:nth-child(4n)
+      visibility: visible
+    & .project-small:not(:nth-child(n + 4))
+      visibility: hidden
+
+  .services
+    display: block
+    width: unset
+    &__options
+      max-width: 343px
+    &__content
+      float: none
+      margin-bottom: 19px
+      max-width: 100%
+    &__aside
+      float: none
+      margin-top: 0
+      min-width: unset
+      width: 100%
+      max-width: unset
+    &__main-list
+      flex-direction: row
+      flex-wrap: wrap
+      gap: 20px 30px
+    &__main-item
+      padding-left: 0
+      padding-top: 184px
+      max-width: calc((100% / 2) - 15px )
+      &:not(:last-child)
+        margin-bottom: 0
+    &__main-item::before 
+      right: 0
+      bottom: unset
+      width: unset
+      height: 184px
+    &__main-item0::before
+      background-image: url(images/services/main-list/img0-768.webp)
+    &__main-item1::before
+      background-image: url(images/services/main-list/img1-768.webp)
+    &__main-item2::before
+      background-image: url(images/services/main-list/img2-768.webp)
+    &__main-item3::before
+      background-image: url(images/services/main-list/img3-768.webp)
+    &__main-item4::before
+      background-image: url(images/services/main-list/img4-768.webp)
+    &__second-item::before 
+      height: 172px
+    &__second-item0::before
+      background-image: url(images/services/second-list/img0-768.webp)
+    &__second-item1::before
+      background-image: url(images/services/second-list/img1-768.webp)
+    &__second-item2::before
+      background-image: url(images/services/second-list/img2-768.webp)
+    &__second-item3::before
+      background-image: url(images/services/second-list/img3-768.webp)
+    &__second-item4::before
+      background-image: url(images/services/second-list/img4-768.webp)
+    &__second-item5::before
+      background-image: url(images/services/second-list/img5-768.webp)
+    &__second-item6::before
+      background-image: url(images/services/second-list/img6-768.webp)
+    &__second-item7::before
+      background-image: url(images/services/second-list/img7-768.webp)
+    &__second-item8::before
+      background-image: url(images/services/second-list/img8-768.webp)
+    &__second-item9::before
+      background-image: url(images/services/second-list/img9-768.webp)
+    &__second-item
+      padding-top: 172px
+  .services-aside
+    &__article
+      padding: 20px 30px 30px 30px
+      margin-bottom: 19px
+  .services-main-article
+    padding: 14px 0 0 0
+  .aside-article
+    position: relative
+    min-height: 336px
+    background-image: url(images/services/aside/background-horizontal.webp)
+    &__work1-list,
+    &__work2-list
+      gap: 30px
+    &__svg
+      position: absolute
+      right: 30px
+
+  .best-practices
+    &__article
+      padding-left: 342px
+      &::before
+        width: 342px
+        background-image: url('images/best-practices/article/img0-768.webp')
+
+  .best-practices-item__wrapper
+    padding: 5px 0 0px 29px
+
+
+  .contacts
+    &__wrapper
+      flex-wrap: wrap
+    &__map
+      margin: 0 0 24px 0 
+      max-width: 100%
+      min-height: 460px
+
+  .contacts-map 
+    &__phone
+      display: flex
+      transform: translate(0, 0)
+    &__title
+      margin-bottom: 10px 
+    &__text-wrapper
+      max-width: 436px
+  .contacts-aplicatoin
+    &__text,
+    &__form,
+    &__input,
+    &__textarea
+      min-width: 278px
+      max-width: 466px
+    &__submit
+      min-width: max-content
+      max-width: 118px
+
+  .footer__text-container 
+    display: none
+
+@media ( max-width: 870px)
+  .hero
+    &__article
+      max-width: 342px
+      background-image: url(images/hero/hero__article-768.webp)
+    &-article
+      &__text
+        margin-bottom: 14px
+      &__title
+        margin-bottom: 23px
+    &__latest-title
+      margin-bottom: 10px
+      line-height: 25px
+      transform: translateY(-4px)
+  .about-subscribe
+    &::before
+      background-image: url(images/about/about__img-768.webp)
+  .project
+    padding-bottom: 18px
+    &__content
+      grid-template-columns: 1fr 1fr
+      grid-template-areas: 'small-list small-list' 'big1-list big1-list' 'medium1-list medium2-list ' 'big2-list big2-list'
+    &__content1
+      grid-template-areas: 'small-list small-list' 'big1-list big1-list' 'medium1-list medium2-list ' 'big2-list big2-list'
+    &__content2
+      grid-template-areas: 'small-list small-list' 'big1-list big1-list' 'medium1-list medium2-list ' 'big2-list big2-list'
+    &__button-item:not(:last-child)
+      margin-right: 20px
+
+  .services
+    padding-top: 18px
+    &__title
+      margin-bottom: 11px
+    &-main-article__text
+      overflow: hidden
+      display: -webkit-box
+      -webkit-box-orient: vertical
+      -webkit-line-clamp: 3
+
+  .best-practices__list
+    gap: 20px 45px
+
+  .contacts-aplicatoin
+    &__title
+      margin-bottom: 10px
+    &__text
+      line-height: 21px
+  .contacts-map 
+    left: -27px
+    min-width: calc( 100% + 27px * 2 )
+    &__info
+      justify-content: flex-end
+      padding: 18px 34px 15px 56px
+    &__button
+      top: 23px
+      right: 47px
+    
+
+// 640
+@media ( max-width:  670px)
+  .container
+    padding: 0 21px
+  .icon-close 
+    background-color: $greayWhite
+  .icon-open
+    color: $white
+  .hashtag
+    font-size: 12px
+  .btn-regular
+    font-size: 14px
+    padding: 10px 21px
+  .about,
+  .about-subscribe,
+  .project,
+  .services,
+  .services-aside,
+  .best-practices,
+  .best-practices-article,
+  .contacts,
+  .contacts-map,
+  .contacts-aplicatoin
+    &__title
+      font-size: 18px
+    &__text
+      font-size: 14px
+  .header
+    &__container
+      grid-template-rows: minmax(70px, auto) minmax(45px, auto)
+      grid-template-columns: min-content 1fr
+      grid-template-areas: 'logo search' 'menu phone'
+      gap: 0
+    &__search--active
+      position: absolute
+      top: 0
+      left: 0
+      padding: 0 21px
+      width: 100%
+      height: 70px
+      background-color: $black
+    &__phone--active
+      z-index: 0
+      position: absolute
+      top: 70px
+      left: 0
+      display: flex
+      align-items: flex-end
+      padding-left: 21px
+      padding-bottom: 36px
+      height: calc(100vh - 70px )
+      height: calc(100svh - 70px )
+      width: 100%
+      background-color: $black
+      border-top: 1px solid #808080
+      transition: background-color .3s ease
+    &__phone--hidden
+      visibility: visible
+  .search
+    &__input
+      opacity: 0
+      font-size: 14px
+      &--active
+        opacity: 1
+        width: 100%
+        transition: opacity .3s ease
+
+  .phone
+    font-size: 14px
+    font-weight: 400
+    &__text
+      max-width: 140px
+      font-size: 14px
+      font-weight: 400
+
+  .burger
+    &__line
+      height: 2px
+      width: 100%
+      background-color: $white
+      &:last-child
+        width: 50%
+  .menu
+    &__list 
+      overflow: auto
+      position: absolute
+      top: 70px
+      left: 0
+      visibility: hidden
+      flex-direction: column
+      justify-content: unset
+      gap: 30px
+      padding: 48px 21px 0 21px
+      min-width: 100%
+      height: calc(100vh - 126px )
+      height: calc(100svh - 126px )
+    &__list--active
+      z-index: 1
+      visibility: visible
+    &__btn
+      z-index: 2
+      position: relative
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      padding: 0
+      width: 20px
+      height: 18px
+      border: none
+      background-color: transparent
+      cursor: pointer
+      &--active
+        width: 18px
+        border-radius: 50%
+        background-color: #808080
+        & .burger__line
+          position: absolute
+          top: 50%
+          left: 50%
+          width: calc( 100% - 5px )
+          transform: translate(-50%, -50%) rotate(-45deg)
+          &:first-child
+            transform: translate(-50%, -50%) rotate(45deg)
+          &:last-child
+            display: none
+  .hero
+    &__container
+      flex-wrap: wrap
+    &__article
+      margin: 0 0 34px 0
+      padding-bottom: 30px
+      min-height: 422px
+      max-width: 100%
+      background-image: url(images/hero/hero__article-1024.webp)
+      & > .hashtag
+        padding: 4px 7px
+        transform: translate(-6px, 5px)
+    &__latest-title
+      margin-bottom: 18px
+      max-width: 100%
+      font-size: 18px
+      transform: translateY(0)
+      line-height: 18px
+  .hero-article
+    &__text
+      margin-bottom: 10px
+      font-size: 14px
+    &__title
+      margin-bottom: 14px
+      font-size: 24px
+      line-height: 1.1
+  .about
+    padding-top: 32px
+    padding-bottom: 60px
+    &__content
+      flex-direction: column
+    &__text
+      margin: 0 0 26px 0
+      max-width: 100%
+      line-height: 25px
+  .about-subscribe
+    &::before
+      position: relative
+      margin-bottom: 26px
+      min-height: 278px
+      background-image: url(images/about/about__img-320.webp)
+    &__form
+      flex-direction: column
+      max-width: 100%
+  .subscribe-form__input
+    padding: 10px 22px 10px 22px
+    min-width: unset
+    max-width: 100% 
+    font-size: 14px
+
+  .project
+    padding-top: 32px
+    padding-bottom: 16px
+    &__container
+      position: relative
+    &__content
+      grid-template-columns: 1fr
+      grid-template-rows: 880px 422px repeat(2, 295px) 422px
+      grid-template-areas: 'small-list' 'big1-list' 'medium1-list' 'medium2-list ' 'big2-list'
+      margin-bottom: 0
+    &__content1
+      grid-template-areas: 'small-list' 'big1-list' 'medium1-list' 'medium2-list ' 'big2-list'
+    &__content2
+      grid-template-areas: 'small-list' 'big1-list' 'medium1-list' 'medium2-list ' 'big2-list'
+    &__small-list
+      flex-direction: column
+    &__button-list
+      position: absolute
+      justify-content: flex-end
+      top: 0
+      right: 21px
+    &__button-item:not(:last-child)
+      margin-right: 10px
+    &__btn
+      overflow: scroll
+      min-width: 24px
+      min-height: 24px
+      max-height: 30px
+      font-size: 12px
+    &__button-item
+      display: flex
+
+  .project__content2
+    & .project-small
+      transform: translate(0, calc((-100% * 3) - calc(30px * 3)))
+  .project-small
+    &:not(:last-child)
+      margin: 0 0 30px
+    min-width: 100%
+    min-height: 273px
+    &__article
+      width: 100%
+  .project-big1,
+  .project-big2
+    &__article
+      justify-content: flex-end
+    &__text
+      margin-bottom: 14px
+      font-size: 14px
+      line-height: 18px
+    &__span
+      margin-bottom: 12px
+    &__title
+      margin-bottom: 9px
+    &__link
+      padding: 9px 18px
+      font-size: 14px
+
+  .project-medium1
+    &__article0::before
+      background-image: url(images/project/project-medium1/img0-320.webp)
+    &__article1::before
+      background-image: url(images/project/project-medium1/img1-320.webp)
+  .project-medium2
+    &__article0::before
+      background-image: url(images/project/project-medium2/img0-320.webp)
+    &__article1::before
+      background-image: url(images/project/project-medium2/img1-320.webp)
+
+  .services
+    padding-top: 16px
+    padding-bottom: 50px
+    &__title
+      margin-bottom: 6px
+    &__options
+      margin-bottom: 20px
+      min-width: unset
+      max-width: 280px
+    &__option
+      font-size: 14px
+    &__main-item
+      min-width: 100%
+      max-width: unset
+    &__second-item
+      padding-top: 184px
+      min-width: 100%
+      max-width: unset
+    &__second-item::before
+      height: 184px
+    &__link
+      margin-top: 4px
+      font-size: 14px
+  .services-main-article
+    &__title
+      font-size: 16px
+    &__text
+      margin-bottom: 0
+      font-size: 14px
+      line-height: 18px
+  .services-second-article
+    &__title
+      font-size: 16px
+  .aside-article
+    margin-bottom: 23px
+    min-height: 423px
+    background-image: url(images/services/aside/background-mini.webp)
+    &__title
+      font-size: 14px
+    &__strong
+      font-size: 30px
+    &__text
+      font-size: 14px
+    &__svg
+      top: 25px
+      width: 85px
+      height: 43px
+    &__work1-list,
+    &__work2-list
+      grid-auto-rows: 94px
+
+  .best-practices
+    padding-top: 23px
+    padding-bottom: 60px
+    &__article 
+      margin-bottom: 43px
+      padding-top: 268px
+      padding-left: 0
+      &::before
+        width: 100%
+        height: 268px
+        background-image: url('images/best-practices/article/img0-320.webp')
+    &__item
+      width: 100%
+    &-item__wrapper
+      padding-top: 0
+    &-item__title
+      line-height: 16px
+    &__list
+      gap: 31px
+  .best-practices-article
+    &__wrapper
+      padding: 0
+      padding-top: 16px
+    &__text
+      margin-bottom: 23px
+      line-height: 25px
+  
+  .contacts
+    padding-top: 32px
+    padding-bottom: 48px
+    &__title
+      margin-bottom: 15px
+  .contacts-map 
+    left: -21px
+    min-width: calc( 100% + 21px * 2 )
+    min-height: 472px
+    &__title
+      margin-bottom: 15px
+    &__info
+      padding: 26px 18px 16px 18px
+    &__text
+      line-height: 16px
+    &__button
+      top: 20px
+      right: 20px
+  .contacts-aplicatoin
+    &__title
+      margin-bottom: 7px
+    &__text
+      line-height: 18px
+    &__input
+      padding: 11px 20px
+      font-size: 14px
+    &__textarea
+      font-size: 14px
+  .footer
+    padding-top: 32px
+    padding-bottom: 0
+    &__container
+      flex-wrap: wrap
+    &__title
+      margin: 0 auto 8px auto
+      width: fit-content
+    &__links
+      order: -1
+      display: flex
+      flex-direction: column
+      margin: 0 auto
+      margin-bottom: 30px
+      width: 100%
+      max-width: 200px
+    &__logo
+      position: relative
+      left: -21px
+      display: flex
+      justify-content: center
+      padding: 15px 0 12px 0
+      min-width: calc( 100% + 21px * 2 )
+      background-color: $greyDark
+    &__picture
+      display: flex
+      justify-content: center
+    &__figcaption
+      font-size: 10px
+@media ( max-width:  428px)
+  .hero
+    &__article
+      background-image: url(images/hero/hero__article-320.webp)
+
+  .services
+    &__main-item0::before
+      background-image: url(images/services/main-list/img0-320.webp)
+    &__main-item1::before
+      background-image: url(images/services/main-list/img1-320.webp)
+    &__main-item2::before
+      background-image: url(images/services/main-list/img2-320.webp)
+    &__main-item3::before
+      background-image: url(images/services/main-list/img3-320.webp)
+    &__main-item4::before
+      background-image: url(images/services/main-list/img4-320.webp)
+
+    &__second-item0::before
+      background-image: url(images/services/second-list/img0-1024.webp)
+    &__second-item1::before
+      background-image: url(images/services/second-list/img1-1024.webp)
+    &__second-item2::before
+      background-image: url(images/services/second-list/img2-1024.webp)
+    &__second-item3::before
+      background-image: url(images/services/second-list/img3-1024.webp)
+    &__second-item4::before
+      background-image: url(images/services/second-list/img4-1024.webp)
+    &__second-item5::before
+      background-image: url(images/services/second-list/img5-1024.webp)
+    &__second-item6::before
+      background-image: url(images/services/second-list/img6-1024.webp)
+    &__second-item7::before
+      background-image: url(images/services/second-list/img7-1024.webp)
+    &__second-item8::before
+      background-image: url(images/services/second-list/img8-1024.webp)
+    &__second-item9::before
+      background-image: url(images/services/second-list/img9-1024.webp)

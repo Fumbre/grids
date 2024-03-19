@@ -1,0 +1,177 @@
+@import 'supports/color_variables'
+@import supports/mixins
+
+@font-face 
+  font-family: 'TT First Neue'
+  font-style: normal
+  font-weight: 400
+  src: local('TT First Neue'), url('/fonts/ttfirsneue-regular.woff2') format('woff2'), url('/fonts/ttfirsneue-regular.woff') format('woff')
+
+@font-face 
+  font-family: 'TT First Neue'
+  font-weight: 700
+  src: local('TT First Neue'), url('/fonts/ttfirsneue-bold.woff2') format('woff2'), url('/fonts/ttfirsneue-bold.woff') format('woff')
+
+@font-face 
+  font-family: 'Roboto'
+  font-style: normal
+  font-weight: 400
+  src: local('Roboto'), url('/fonts/roboto-regular.woff2') format('woff2'), url('/fonts/roboto-regular.woff') format('woff')
+
+@font-face 
+  font-family: 'Roboto'
+  font-weight: 700
+  src: local('Roboto'), url('/fonts/roboto-bold.woff2') format('woff2'), url('/fonts/roboto-bold.woff') format('woff')
+
+*
+  box-sizing: border-box
+
+body
+  margin: 0
+  font-family: 'Roboto', 'Nunito', 'Open Sans', 'Montserrat', 'Lato', 'Source Sans Pro', sans-serif
+
+
+ol,ul
+  margin: 0
+  padding: 0
+  list-style: none
+
+a
+  text-decoration: none
+  color: inherit
+
+svg
+  width: 30px
+  height: 30px
+
+h1,h2,h3,h4,p
+  margin: 0
+
+figure
+  margin: 0
+
+.container
+  margin: 0 auto
+  padding: 0 31px
+  max-width: 1352px
+
+.logo
+  display: flex
+  &__picture
+    display: flex
+
+.links
+  justify-self: self-end
+  &__list
+    display: flex
+    flex-wrap: wrap
+    gap: 10px 20px
+
+  &__link
+    display: flex
+    color: $greayWhite
+    @include transitionColor($color: true, $bgc: false, $bc: false)
+    &:hover
+      color: $orange
+    &:focus
+      color: $orangeWhite
+    &:active
+      color: $orangeDark
+
+.phone
+  display: inline-flex
+  padding: 0 4px 0 2px
+  align-items: center
+  color: $white
+  border: 2px solid transparent
+  @include transitionColor($color: true, $bgc: false, $bc: true)
+  &:hover
+    color: $orange
+  &:focus
+    color: $orangeWhite
+  &:active
+    color: $orangeDark
+  &__icon
+    width: 22px
+    height: 22px
+    fill: currentColor
+
+.icon-open
+  visibility: hidden
+
+.icon-close
+  visibility: hidden
+  display: flex
+  border-radius: 50%
+  background-color: $orange
+  &::before,
+  &::after
+    position: absolute
+    top: 50%
+    left: 50%
+    content: ''
+    width: 14px
+    height: 2px
+    background-color: #fff
+    transform: translate(-50%, -50%) rotate(45deg)
+  &::after
+    transform: translate(-50%, -50%) rotate(-45deg)
+
+.visually-hidden
+  position: absolute
+  width: 1px
+  height: 1px
+  margin: -1px
+  padding: 0
+  overflow: hidden
+  clip: rect(0, 0, 0, 0)
+  border: 0
+
+.hashtag
+  overflow: scroll
+  position: absolute
+  top: 0
+  right: 0
+  display: block
+  padding: 6px 14px
+  max-width: 195px
+  max-height: calc( 100% - 177px )
+  background-color: $hashtagColor
+  color: $white
+  font-size: 14px
+  word-break: break-all
+
+.btn-regular
+  flex-shrink: 0
+  padding: 15px 20px
+  max-width: 173px
+  border: 2px solid transparent
+  border-radius: unset
+  background-color: $orange
+  color: $white
+  word-break: break-word
+  font-size: 16px
+  font-weight: 700
+  cursor: pointer
+  @include transitionColor($color: false, $bgc: true, $bc: true)
+  &:hover
+    background-color: $orangeWhite
+  &:focus
+    border-color: $orangeDark
+    background-color: $orange
+  &:active
+    background-color: $orangeDark
+  
+.leaflet-tile-pane
+  -webkit-filter: grayscale(100%)
+  filter: grayscale(100%)
+
+.map-marker-icon
+  width: 12px
+  height: 12px
+  background-color: $orange
+  border: 1px solid $orange
+  border-radius: 50%
+
+.notValid
+  color: $red
