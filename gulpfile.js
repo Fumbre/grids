@@ -109,4 +109,4 @@ dev(watch(path.srcImg, images))
 dev(watch('src/img/svg/**/*.svg', sprites))
 
 exports.default = series (clean, mode(dev), html, styles, scripts, sprites, images, fonts, watchFile);
-exports.pro = series (clean, mode(prod), html, styles, scripts, sprites, images, fonts, watchFile);
+exports.build = series (clean, mode(prod), html, styles, scripts, sprites, images, fonts, watchFile);
