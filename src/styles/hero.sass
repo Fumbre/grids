@@ -1,0 +1,59 @@
+@import 'supports/color_variables'
+@import supports/mixins
+
+.hero
+  &__container
+    display: flex
+    justify-content: center
+  &__article
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    margin-right: 30px
+    padding: 60px
+    max-width: 630px
+    width: 100%
+    min-width: 278px
+  &__latest-title
+    margin-bottom: 11px
+    max-width: 630px
+    transform: translateY(-7px)
+    @include font-title($size: 24px, $weight: 700, $color: $black)
+    line-height: 1
+  &__latest
+    width: 100%
+  &__list
+    display: grid
+    grid-auto-columns: 1fr
+    grid-template-rows: auto
+    grid-template-areas: 'p1 p1' 'p2 p3'
+    width: 100%
+    gap: 30px
+  &__item1
+    grid-area: p1
+    width: 100%
+  &__item2
+    grid-area: p2
+    width: 100%
+  &__item3
+    grid-area: p3
+    width: 100%
+  &__picture
+    display: flex
+    width: 100%
+  &__img
+    width: 100%
+.hero-article
+  width: 100%
+  background-image: url(images/hero/hero__article.webp)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  & > .hashtag
+    transform: translate(-15px, 15px)
+  &__text
+    @include font-text($size: 16px, $weight: 400, $color: $white)
+  &__title
+    margin-bottom: 14px
+    @include font-title($size: 36px, $weight: 700, $color: $white)

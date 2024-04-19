@@ -1,0 +1,321 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title High pass
+    link(rel="stylesheet", href="main.css")
+    link(rel="shortcut icon", href="images/favicon.ico", type="image/x-icon")
+    link(rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="")
+    script(src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="")
+    script(defer src="main.js")
+  body
+    header.header
+      .header__container.container
+        .header__logo.logo
+          h1.visually-hidden high pass красивые фотографии
+          a(href="#", class="logo__link")
+            picture.logo__picture
+              source(media="(max-width: 570px)", srcset="images/Logo320.webp")
+              source(media="(max-width: 1170px)", srcset="images/Logo1024.webp")
+              img(src="images/Logo.webp", alt="High pass логотип")
+        nav.header__menu.menu
+          - const menuList = [{title: 'О студии', link: '#about'}, {title: 'Наши проекты', link: '#project'}, {title: 'Услуги', link: '#services'}, {title: 'Мастер-классы', link: '#best-practices'}, {title: 'Контакты', link: '#contacts'}];
+          button(aria-label='кнопка открывающая и закрывающая меню').menu__btn.burger
+            span.burger__line 
+            span.burger__line 
+            span.burger__line 
+          ul.menu__list
+            each item in menuList
+              li.menu__item
+                a(href=item.link, class='menu__link')= item.title
+        .header__links.links
+          - const sprite = 'images/sprite.svg'
+          - const linkList = [{sprite: `${sprite}#inst`, link: '#', ariaLabel: 'соц-сеть инстаграм'}, {sprite: `${sprite}#fb`, link: '#', ariaLabel: 'соц-сеть фейсбук'}, {sprite: `${sprite}#vk`, link: '#', ariaLabel: 'соц-сеть вконтаке'}]
+          ul.links__list
+            each item in linkList
+              li.links__item
+                a(href=item.link, class="links__link", aria-label=item.ariaLabel)
+                  svg
+                    use(href=item.sprite)
+        .header__phone
+          a(href="tel:+749542423532", class="phone")
+            svg(aria-hidden='true').phone__icon
+              use(href=`${sprite}#mdi_call`)
+            strong.phone__text +7 (495) 42-423-532
+        .header__search.search
+          button(aria-label="открыть поиск", class="search__btn")
+            svg.search__icon.icon-open
+              use(href=`${sprite}#search`)
+            svg.search__icon.icon-open1
+              use(href=`${sprite}#search1`)
+            span.search__icon.icon-close
+          input(class="search__input", type="text", placeholder="Что будем иcкать?")
+    main
+      section.hero
+        .hero__container.container
+          h2.visually-hidden Работы мастер-класса
+          - const pictureMediaSizes = ['1100px', '960px', '721px', '670px', '428px'];
+          article.hero__article.hero-article
+            span.hashtag
+              a(href="/search?tag=#мастеркласс", aria-label="найти все запросы по #мастеркласс") #мастеркласс
+            p.hero-article__text Мастер-класс от Игоря Робова
+            h2.hero-article__title Неоновый фотосет 2.0
+              br
+              time(datetime="2024-07-07T20:00:00Z")
+                |7&nbsp;июля 20:00
+            button(aria-label="Узнать больше о мастерклассе").btn-regular Узнать больше
+          div.hero__latest
+            h3.hero__latest-title Работы участников предыдущего мастер-класса
+            ul.hero__list
+              li.hero__item.hero__item1
+                picture.hero__picture
+                  source(media=`(max-width: ${pictureMediaSizes[4]})`, srcset="images/hero/hero__img1-320.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[3]})`, srcset="images/hero/hero__img1-768.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[2]})`, srcset="images/hero/hero__img1-320.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[1]})`, srcset="images/hero/hero__img1-768.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[0]})`, srcset="images/hero/hero__img1-1024.webp")
+                  img(src="images/hero/hero__img1.webp", alt="девушка возле неона").hero__img
+              li.hero__item.hero__item2
+                picture.hero__picture
+                  source(media=`(max-width: ${pictureMediaSizes[4]})`, srcset="images/hero/hero__img2-320.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[3]})`, srcset="images/hero/hero__img2-768.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[2]})`, srcset="images/hero/hero__img2-320.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[1]})`, srcset="images/hero/hero__img2-768.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[0]})`, srcset="images/hero/hero__img2-1024.webp")
+                  img(src="images/hero/hero__img2.webp", alt="девушка с неоном").hero__img
+              li.hero__item.hero__item3
+                picture.hero__picture
+                  source(media=`(max-width: ${pictureMediaSizes[4]})`, srcset="images/hero/hero__img3-320.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[3]})`, srcset="images/hero/hero__img3-768.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[2]})`, srcset="images/hero/hero__img3-320.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[1]})`, srcset="images/hero/hero__img3-768.webp")
+                  source(media=`(max-width: ${pictureMediaSizes[0]})`, srcset="images/hero/hero__img3-1024.webp")
+                  img(src="images/hero/hero__img3.webp", alt="девушка и неон").hero__img
+      section(id="about", class="about")
+        .container
+          h2.about__title О студии
+          .about__content
+            p.about__text В&nbsp;рамках спецификации современных стандартов, интерактивные прототипы, инициированные исключительно синтетически, ограничены исключительно образом мышления. Предварительные выводы неутешительны: высокотехнологичная концепция общественного уклада требует от&nbsp;нас анализа соответствующих условий активизации! Следует отметить, что семантический разбор внешних противодействий фиксирует необходимость распределения внутренних резервов и&nbsp;ресурсов. Безусловно, граница обучения кадров предоставляет широкие возможности для первоочередных требований. Повседневная практика показывает, что глубокий уровень погружения предполагает независимые способы реализации новых принципов формирования материально-технической и&nbsp;кадровой базы. Приятно, граждане, наблюдать, как явные признаки институционализации являются только методом политического участия и&nbsp;нарушающими общечеловеческие нормы этики.
+            .about__subscribe.about-subscribe
+              h3.about-subscribe__title Подписаться на рассылку
+              form.about-subscribe__form.subscribe-form
+                label.subscribe-form__label
+                  input(type="email", name="sendEmail", class="subscribe-form__input", placeholder="E-mail", aria-label='форма для майла')
+                button(type="submit", class="btn-regular", aria-label='кнопка подписаться на рассылку') Отправить
+      section(id="project", class="project")
+        .project__container.container
+          h2.project__title Наши проекты
+          .project__content
+            - const projectImgSizes = ['1260px'];
+            - const smallList = [{text: 'Синтетически, смешаны с не уникальными данными до степени...', hashtag: '#пейзаж', datetime: '06-16', datetext: '16 июня', alt: 'пейзаж'}, {text: 'В своём стремлении улучшить опыт мы упускаем, что явные...', hashtag: '#портрет', datetime: '05-28', datetext: '28 мая', alt: 'портрет'}, {text: 'Равным образом, высокое качество позиционных...', hashtag: '#предмет', datetime: '05-14', datetext: '14 мая', alt: 'предмет'}, {text: 'Равным образом, сложившаяся структура организации...', hashtag: '#пейзаж', datetime: '02-15', datetext: '15 февраля', alt: 'пейзаж'}, {text: 'Безусловно, реализация намеченных плановых заданий обеспечивает...', hashtag: '#предмет', datetime: '02-10', datetext: '10 февраля', alt: 'предмет'}, {text: 'Безусловно, курс на социальный национальный...', hashtag: '#пейзаж', datetime: '02-07', datetext: '7 февраля', alt: 'пейзаж'}];
+            ul.project__small-list
+              each item, index in smallList
+                li.project__small-item.project-small
+                  article(class=`project-small__article${index}`).project-small__article
+                    span.hashtag
+                      a(href=`/search?tag=${item.hashtag}`, aria-label=`найти все запросы по ${item.hashtag}`)= item.hashtag
+                    a(href='#').project-small__link
+                      h3.project-small__text= item.text
+                    span.project-small__span
+                      svg.project__svg
+                        use(href='images/sprite.svg#calendar')
+                      time(datetime=item.datetime)= item.datetext
+            - const bigList1 = [{title: 'Cемантический разбор', text: 'В рамках спецификации современных стандартов, интерактивные прототипы', linkText: 'О проекте', datetime: '04-09', datetext: '9 апреля', hashtag: '#fuji'}, {title: 'Спорная точка зрения', text: 'Ясность нашей позиции очевидна: убеждённость некоторых оппонентов', linkText: 'О проекте', datetime: '02-24', datetext: '24 февраля', hashtag: '#портрет'}];
+            ul.project__big1-list
+              each item, index in bigList1
+                li.project__big1-item.project-big1
+                  article(class=`project-big1__article${index}`).project-big1__article
+                    span.project-big1__span
+                        svg.project__svg
+                          use(href='images/sprite.svg#calendar')
+                        time(datetime=item.datetime)= item.datetext
+                    h3.project-big1__title= item.title
+                    p.project-big1__text= item.text
+                    a(href='#', class="project-big1__link", aria-label='о проекте')= item.linkText
+                    span.hashtag
+                      a(href=`/search?tag=${item.hashtag}`, aria-label=`найти все запросы по ${item.hashtag}`)= item.hashtag
+            - const bigList2 = [{title: 'Забвение', text: 'Играет важную роль в формировании глубокомысленных рассуждений', linkText: 'О проекте', datetime: '03-20', datetext: '20 марта', hashtag: '#проектзабвение'}, {title: 'Задания по разработке своевременного', text: 'Повседневная практика показывает, что сложившаяся структура организации играет важную роль', linkText: 'О проекте', datetime: '02-02', datetext: '2 февраля', hashtag: '#проектджаз'}];
+            ul.project__big2-list
+              each item, index in bigList2
+                li.project__big2-item.project-big2
+                  article(class=`project-big2__article${index}`).project-big2__article
+                    span.project-big2__span
+                        svg.project__svg
+                          use(href='images/sprite.svg#calendar')
+                        time(datetime=item.datetime)= item.datetext
+                    h3.project-big2__title= item.title
+                    p.project-big2__text= item.text
+                    a(href='#', class="project-big2__link", aria-label='о проекте')= item.linkText
+                    span.hashtag
+                      a(href=`/search?tag=${item.hashtag}`, aria-label=`найти все запросы по ${item.hashtag}`)= item.hashtag
+            - const mediumList1 = [{text: 'Как принято считать, многие известные личности и по сей день остаются уделом либералов...', hashtag: '#ретушь', datetime: '03-09', datetext: '9 марта', alt: 'ретушь мандарин'}, {text: 'Идейные соображения высшего порядка, а также убеждённость некоторых оппонентов...', hashtag: '#ретушь', datetime: '02-20', datetext: '20 февраля', alt: 'ретушь пейзажа'}];
+            ul.project__medium1-list
+              each item, index in mediumList1
+                li.project__medium1-item.project-medium1
+                  article(class=`project-medium1__article${index}`).project-medium1__article
+                    a(href='#').project-medium1__link
+                      h3.project-medium1__text= item.text
+                    span.project-medium1__span
+                      svg.project__svg
+                        use(href='images/sprite.svg#calendar')
+                      time(datetime=item.datetime)= item.datetext
+                    span.hashtag
+                      a(href=`/search?tag=${item.hashtag}`, aria-label=`найти все запросы по ${item.hashtag}`)= item.hashtag
+            - const mediumList2 = [{text: 'С учётом сложившейся международной обстановки, новая модель организационной...', hashtag: '#портрет', datetime: '03-01', datetext: '1 марта', alt: 'портрет девушки'}, {text: 'Прежде всего, повышение уровня гражданского сознания говорит о возможностях приоритизации...', hashtag: '#портрет', datetime: '02-18', datetext: '18 февраля', alt: 'портрет девочки'}];
+            ul.project__medium2-list
+              each item, index in mediumList2
+                li.project__medium2-item.project-medium2
+                  article(class=`project-medium2__article${index}`).project-medium2__article
+                    a(href='#').project-medium2__link
+                      h3.project-medium2__text= item.text
+                    span.project-medium2__span
+                      svg.project__svg
+                        use(href='images/sprite.svg#calendar')
+                      time(datetime=item.datetime)= item.datetext
+                    span.hashtag
+                      a(href=`/search?tag=${item.hashtag}`, aria-label=`найти все запросы по ${item.hashtag}`)= item.hashtag
+          - const buttonsList = [{title: '1', state: 'project__btn project__btn--active', araia: 'кнопка страницы каталога'}, {title: '2', state: 'project__btn', araia: 'кнопка страницы каталога'}];
+          ul.project__button-list
+            each button, index in buttonsList
+              li.project__button-item
+                button(class=button.state, aria-label=`${button.araia} ${index + 1}`)= button.title
+      section(id="services").services 
+        .services__container.container
+          h2.services__title Услуги студии
+          - const servicesTitleList = [{title: 'Основной перечень', status: 'services__option--active'}, {title: 'Услуги по ретуши', status: ''}];
+          ul.services__options
+            each item in servicesTitleList 
+              li.services__option(class=item.status)
+                a(href="#services", aria-label=`перейти на ${item.title}`)= item.title
+          .services__content 
+            - const mainServices = [{title: 'Высокий уровень вовлечения', text: 'Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта.', link: 'Подробнее'}, {title: 'Диаграммы связей', text: 'Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий влечет за собой процесс.', link: 'Подробнее'}, {title: 'Высокотехнологичная концепция', text: 'В частности, убеждённость некоторых оппонентов способствует подготовке и реализации анализа существующих паттернов.', link: 'Подробнее'}, {title: 'Сложившаяся структура организации', text: 'Кстати,  сторонники тоталитаризма в науке будут объединены в целые кластеры себе подобных.', link: 'Подробнее'}, {title: 'Внутренние резервы и ресурсы', text: 'Банальные, но неопровержимые выводы, а также ключевые особенности структуры проекта являются только методом.', link: 'Подробнее'}];
+            ul.services__main-list.services__content-list
+              each item, index in mainServices 
+                li(class=`services__main-item${index}`).services__main-item.services__item--active
+                  article.services__article.services-main-article
+                    h3.services-main-article__title= item.title 
+                    p.services-main-article__text= item.text 
+                    a(href="#", class="services__link")= item.link
+                      svg.services__svg
+                        use(href="images/sprite.svg#arrow")
+            - const secondServices = [{title: 'Принимая во внимание показатели', link: 'Подробнее'}, {title: 'Таким образом, выбранный нами...', link: 'Подробнее'}, {title: 'Также как высокое качество...', link: 'Подробнее'}, {title: 'Безусловно, семантический разбор...', link: 'Подробнее'}, {title: 'Внезапно, предприниматели в интернете...', link: 'Подробнее'}, {title: 'Есть над чем подумать: активные...', link: 'Подробнее'}, {title: 'Сделанные на базе аналитики выводы...', link: 'Подробнее'}, {title: 'Как принято считать, сторонники...', link: 'Подробнее'}, {title: 'Задача организации, в особенности...', link: 'Подробнее'}, {title: 'Активно развивающиеся страны...', link: 'Подробнее'}];
+            ul.services__second-list.services__content-list
+              each item, index in secondServices 
+                li(class=`services__second-item${index}`).services__second-item 
+                  article.services__article.services-second-article
+                    h3.services-second-article__title= item.title
+                    a(href="#", class="services__link")= item.link
+                      svg.services__svg
+                        use(href="images/sprite.svg#arrow")
+          aside.services__aside.services-aside
+            article.services-aside__article.aside-article 
+              h3.aside-article__title 
+                strong.aside-article__strong Акция!
+                | Только в июне
+              svg.aside-article__svg
+                use(href="images/sprite.svg#sale")
+              p.aside-article__text 1,5 часа портретной съемки <br> + ретушь 10 снимков
+              button(class="btn-regular", aria-label='Узнать больше о акции') Узнать больше 
+            h2.services-aside__title Выполненные работы
+            - const servicesImagesTitle = [{title: 'предмет'}, {title: 'дом'}, {title: 'пейзаж'}, {title: 'обстракция'}, {title: 'птица'}, {title: 'декор'}, {title: 'эстетика'}, {title: 'пес'}, {title: 'дом'},{title: 'портрет'} ,{title: 'портрет'}, {title: 'портрет'}, {title: 'портрет'}, {title: 'пейзаж'}, {title: 'кросовки'}, {title: 'мистика'}];
+            - const servicesImagesSecondTitle = [{title: 'пейзаж'}, {title: 'карточка'}, {title: 'природа'}, {title: 'лес'}, {title: 'эстетика'}, {title: 'слон'}, {title: 'люди'}, {title: 'город'}, {title: 'пшиница'}, {title: 'луна'}, {title: 'ночной город'}, {title: 'пейзаж'}, {title: 'природа'}, {title: 'город'}, {title: 'машина'}, {title: 'эстетика'}];
+            - const servicesImagesScreen = ['1280px', '1021px'];
+            .aside-article__work-wrapper
+              ul.aside-article__work1-list.aside-article__work-list  
+                each item, index in servicesImagesTitle
+                  li.aside-article__work1-item
+                    picture 
+                      source(media=`(max-width: ${servicesImagesScreen[1]})`, srcset=`images/services/aside/done-work/work1/img${index}-small.webp`)
+                      source(media=`(max-width: ${servicesImagesScreen[0]})`, srcset=`images/services/aside/done-work/work1/img${index}-medium.webp`)
+                      img(src=`images/services/aside/done-work/work1/img${index}.webp`, alt=`${item.title}`).aside-article__img
+              ul.aside-article__work2-list.aside-article__work-list  
+                each item, index in servicesImagesSecondTitle
+                  li.aside-article__work2-item
+                    picture 
+                      source(media=`(max-width: ${servicesImagesScreen[1]})`, srcset=`images/services/aside/done-work/work2/img${index}-small.webp`)
+                      source(media=`(max-width: ${servicesImagesScreen[0]})`, srcset=`images/services/aside/done-work/work2/img${index}-medium.webp`)
+                      img(src=`images/services/aside/done-work/work2/img${index}.webp`, alt=`${item.title}`).aside-article__img
+      section(id='best-practices', class='best-practices')
+        .best-practices__container.container
+          h2.best-practices__title Мастер-классы
+          article.best-practices__article.best-practices-article
+            .best-practices-article__wrapper
+              span.best-practices__span.best-practices-article__span
+                time(datetime=`2024-06-08T15:00:00`)
+                  span.best-practices__date
+                    svg(aria-hidden="true").best-practices__svg
+                      use(href='images/sprite.svg#calendar')
+                    |8 июня
+                  span.best-practices__time
+                    svg(aria-hidden="true").best-practices__svg
+                      use(href='images/sprite.svg#watch')
+                    |15:00
+              h3.best-practices-article__title Пленка для начинающих
+              p.best-practices-article__text Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: семантический разбор внешних противодействий, в&nbsp;своём классическом представлении.
+              button(aria-label='узнать больше о пленке для начинающих').btn-regular Узнать больше
+          - const betstPracticesList = [{date: '9 июня', time: '15:00', datetime: '06-09', title: 'Ретушь. Продвинутый уровень'}, {date: '11 июня', time: '16:00', datetime: '06-11', title: 'Макросъемка. Проблемы и нюансы'}, {date: '10 июня', time: '16:00', datetime: '06-10', title: 'Портретная съемка. Свет'}, {date: '13 июня', time: '18:00', datetime: '06-13', title: 'Творческая ретушь для начинающих'}]
+          ul.best-practices__list
+            each item, index in betstPracticesList
+              li(class=`best-practices__item${index}`).best-practices__item.best-practices-item  
+                .best-practices-item__wrapper
+                  span.best-practices__span
+                    time(datetime=`2024-${item.datetime}T${item.time}:00`)
+                      span.best-practices__date
+                        svg(aria-hidden="true").best-practices__svg
+                          use(href='images/sprite.svg#calendar')
+                        = item.date
+                      span.best-practices__time
+                        svg(aria-hidden="true").best-practices__svg
+                          use(href='images/sprite.svg#watch')
+                        = item.time
+                  h3.best-practices-item__title= item.title
+      section.contacts#contacts
+        .contacts__container.container 
+          h2.contacts__title Контакты
+          .contacts__wrapper 
+            .contacts__map.contacts-map 
+              .contacts-map__iframe#map
+              .contacts-map__info 
+                .contacts-map__text-wrapper
+                  h3.contacts-map__title Студия &laquo;High pass&raquo;
+                  p.contacts-map__text 107045, Москва, Даев переулок, дом&nbsp;41, бизнес-центр &laquo;Даев Плаза&raquo;, этаж&nbsp;8, офис &#8470;&nbsp;82 
+                    span.contacts-map__phone.phone
+                      a(href="tel:+749542423532", class="phone")
+                        svg(aria-hidden='true').phone__icon
+                          use(href=`${sprite}#mdi_call`)
+                        | +7 (495) 42-423-532
+                button(aria-label='закрыть').contacts-map__button
+            .contacts__aplication.contacts-aplicatoin
+              h3.contacts-aplicatoin__title Оставить заявку
+              p.contacts-aplicatoin__text Оставьте ваши данные, указав в&nbsp;графе &laquo;Комментарий&raquo; желаемые время и&nbsp;дату съемки или другого мероприятия
+              form.contacts-aplicatoin__form
+                label.contacts-aplicatoin__label
+                  input(type='text' placeholder='Имя', aria-label='форма Имени').contacts-aplicatoin__input.contacts-aplicatoin__input-name
+                label.contacts-aplicatoin__label
+                  input(type='email' placeholder='E-mail', aria-label='форма для емаила').contacts-aplicatoin__input.contacts-aplicatoin__inputEmail
+                label.contacts-aplicatoin__label
+                  textarea(placeholder='Комментарий', class='contacts-aplicatoin__textarea', aria-label='форма для коментария').contacts-aplicatoin__input
+                button(type='submit', class='btn-regular contacts-aplicatoin__submit', aria-label='кнопка оставить заявку').contacts-aplicatoin__inputSubmit Отправить
+    footer.footer
+      .footer__container.container 
+        h2.visually-hidden Доп. информация
+        .footer__logo.logo
+           a(href="#", class="logo__link")
+            figure 
+              picture.logo__picture.footer__picture
+                source(media="(max-width: 570px)", srcset="images/Logo320.webp")
+                source(media="(max-width: 1170px)", srcset="images/Logo1024.webp")
+                img(src="images/Logo.webp", alt="High pass логотип")
+              figcaption.footer__figcaption Фотостудия High pass<sup class="reg">&reg;</sup> 2018-2020
+        .footer__text-container 
+          blockquote.footer__quote Которая из&nbsp;моих фотографий самая любимая? Та, которую я&nbsp;собираюсь снять завтра.
+            strong.footer__quote-author &copy;&nbsp;Имоджен Каннингем
+        .footer__links.links 
+          h3.footer__title Больше интересного:
+          ul.links__list.footer__list
+            each item in linkList
+              li.links__item
+                a(href=item.link, class="links__link", aria-label=item.ariaLabel)
+                  svg
+                    use(href=item.sprite)

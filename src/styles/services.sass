@@ -1,0 +1,232 @@
+@import supports/color_variables
+@import supports/mixins
+
+@mixin transition($property)
+  transition: $property .3s ease-in-out
+
+
+.services
+  --index: 0
+  --translate: -100%
+  display: flex
+  width: 100%
+  &__container
+    position: relative
+    width: 100%
+  &__title
+    margin-bottom: 16px
+    @include font-title(24px, 700, $black)
+  &__options
+    position: relative
+    display: flex
+    justify-content: space-between
+    margin-bottom: 30px
+    min-width: 296px
+    max-width: 412px
+    border-bottom: 4px solid $grey
+  &__option
+    position: relative
+    @include font-text(16px, 400, $greyLight)
+    line-height: 28px
+    @include transitionColor($color: true, $bgc: false, $bc: false)
+    word-break: break-all
+    &:hover
+      color: $orangeWhite
+    &:focus
+      color: $orangeWhite
+    &:active
+      color: $orangeDark
+    &::before
+      position: absolute
+      bottom: 0
+      content: ''
+      width: 100%
+      height: 4px
+      transform: translate(0, 100%) scaleX(.1)
+      transition: transform .3s ease
+  &__option--active
+    position: relative
+    color: $orange
+    &::before
+      position: absolute
+      bottom: 0
+      content: ''
+      width: 100%
+      height: 4px
+      color: inherit
+      background-color: currentColor
+      transform: translate(0%, 100%) scaleX(1)
+  &__content
+    float: left
+    overflow: hidden
+    display: flex
+    max-width: 850px
+  &__content-list
+    min-width: 100%
+  &__main-list
+    display: flex
+    flex-direction: column
+  &__second-list
+    display: flex
+    flex-wrap: wrap
+    gap: 20px 30px
+  &__main-item
+    opacity: 0
+    display: flex
+    padding-left: 300px
+    @include transition(opacity)
+    &:not(:last-child)
+      margin-bottom: 25px
+  &__second-item
+    opacity: 0
+    display: flex
+    padding-left: 190px
+    min-width: calc((100% / 2) - 15px)
+    max-width: calc((100% / 2) - 15px)
+    @include transition(opacity)
+  &__item--active
+    opacity: 1
+  &__article
+    display: flex
+    flex-direction: column
+    padding: 19px 0 11px 29px
+  &__svg
+    position: relative
+    height: 13px
+    width: 19px
+    transform: translate(4px, 2px)
+  &__aside
+    float: right
+    margin-top: -92px
+    min-width: calc(100% - 880px)
+    max-width: calc(100% - 880px)
+  &__link
+    margin-top: 10px
+    @include font-text(16px, 700, $orange)
+    line-height: 28px
+    word-break: break-word
+    @include transitionColor($color: true, $bgc: true, $bc: false)
+    &:hover
+      color: $orangeWhite
+    &:focus
+      color: $black
+      background-color: $beige
+    &:active
+      color: $orangeDark
+
+  &__main-item,
+  &__second-item
+    position: relative
+  &__main-item::before,
+  &__second-item::before 
+    position: absolute
+    content: ''
+    top: 0
+    left: 0
+    bottom: 0
+    width: 300px
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+  &__second-item::before 
+    width: 190px
+  &__main-item0::before
+    background-image: url(images/services/main-list/img0.webp)
+  &__main-item1::before
+    background-image: url(images/services/main-list/img1.webp)
+  &__main-item2::before
+    background-image: url(images/services/main-list/img2.webp)
+  &__main-item3::before
+    background-image: url(images/services/main-list/img3.webp)
+  &__main-item4::before
+    background-image: url(images/services/main-list/img4.webp)
+  &__second-item0::before
+    background-image: url(images/services/second-list/img0.webp)
+  &__second-item1::before
+    background-image: url(images/services/second-list/img1.webp)
+  &__second-item2::before
+    background-image: url(images/services/second-list/img2.webp)
+  &__second-item3::before
+    background-image: url(images/services/second-list/img3.webp)
+  &__second-item4::before
+    background-image: url(images/services/second-list/img4.webp)
+  &__second-item5::before
+    background-image: url(images/services/second-list/img5.webp)
+  &__second-item6::before
+    background-image: url(images/services/second-list/img6.webp)
+  &__second-item7::before
+    background-image: url(images/services/second-list/img7.webp)
+  &__second-item8::before
+    background-image: url(images/services/second-list/img8.webp)
+  &__second-item9::before
+    background-image: url(images/services/second-list/img9.webp)
+
+.services-main-article
+  &__title
+    margin-bottom: 5px
+    @include font-title(24px, 400, $black)
+    line-height: 22px
+    word-break: break-word
+  &__text
+    margin-bottom: auto
+    @include font-text(16px, 400, $greay)
+    line-height: 22px
+    word-break: break-word
+.services-second-article
+  &__title
+    margin-bottom: auto
+    @include font-title(24px, 400, $black)
+    line-height: 24px
+    word-break: break-all
+
+.aside-article
+  display: flex
+  flex-direction: column
+  margin-bottom: 30px
+  padding: 20px 30px 30px 30px
+  width: 100%
+  min-height: 490px
+  background-image: url(images/services/aside/background.webp)
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  &__title
+    display: flex
+    flex-direction: column
+    margin-bottom: auto
+    @include font-text(16px, 700, $yellow)
+    line-height: 22px
+    word-break: break-word
+  &__strong
+    @include font-title(36px, 700, $yellow)
+    line-height: 1
+  &__text
+    margin-bottom: 9px
+    @include font-text(16px, 400, $white)
+    line-height: 22px
+    word-break: break-word
+  &__svg
+    width: 116px
+    height: 59px
+    margin-bottom: 9px
+  &__work-wrapper
+    overflow: hidden
+    display: flex
+  &__work-list 
+    transform: translateX(calc(var(--translate) * var(--index)))
+    @include transition(transform)
+  &__work1-list,
+  &__work2-list
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr))
+    grid-auto-rows: 60px
+    gap: 30px 30px
+    min-width: 100%
+  &__img
+    width: 100%
+    height: 100%
+.services-aside
+    &__title 
+      margin-bottom: 12px
+      @include font-title(24px, 700, $black)
+      word-break: break-word

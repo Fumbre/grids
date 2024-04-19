@@ -1,0 +1,27 @@
+@mixin font-title($size, $weight, $color)
+  font-family: 'TT First Neue', 'Helvetica Neue', 'Arial', 'Noto Sans', 'Roboto', 'Arial', sans-serif
+  font-weight: $weight
+  font-size: $size
+  color: $color
+
+@mixin font-text($size, $weight, $color)
+  font-family: 'Roboto', 'Nunito', 'Open Sans', 'Montserrat', 'Lato', 'Source Sans Pro', sans-serif
+  font-weight: $weight
+  font-size: $size
+  color: $color
+
+@mixin transitionColor($color: false, $bgc: false, $bc: false)
+  @if $color and $bgc and $bc
+    transition: color .3s ease, border-color .3s ease, background-color .3s ease
+  @if $bgc and $bc and not $color
+    transition: border-color .3s ease, background-color .3s ease
+  @if $color and $bgc and not $bc
+    transition: color .3s ease, background-color .3s ease
+  @if $color and $bc and not $bgc
+    transition: color .3s ease, border-color .3s ease
+  @if $color and not $bgc and not $bc
+    transition: color .3s ease
+  @if $bgc and not $color and not $bc
+    transition: background-color .3s ease
+  @if $bc and not $bgc and not $color
+    transition: border-color .3s ease
